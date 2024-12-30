@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0
+    minimum-scale=1
+    maximum-scale=1"
+    />
+    <title>보더 래디우스 애니메이션</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      body {
+        background: #0a070f;
+        color: #fafafa;
+      }
+      .box {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        height: 350px;
+      }
+      .box span {
+        position: absolute;
+        border: 2px solid #fff;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: 0.7s;
+      }
+      .box span:nth-of-type(1) {
+        border-radius: 40% 45% 55% 60% / 60% 60% 65% 65%;
+        animation: rotate 5s linear infinite;
+      }
+      .box span:nth-of-type(2) {
+        border-radius: 50% 50% 55% 50% / 45% 45% 45% 40%;
+        animation: reverse_rotate 7s ease-out infinite;
+      }
+      .box span:nth-of-type(3) {
+        border-radius: 75% 85% 75% 80% / 55% 55% 55% 55%;
+        animation: rotate 7s ease-in infinite;
+      }
+
+      .box:hover span {
+        background: coral;
+        border: none;
+      }
+      .box:hover span:nth-of-type(1) {
+        opacity: 0.6;
+      }
+      .box:hover span:nth-of-type(2) {
+        opacity: 0.5;
+      }
+      .box:hover span:nth-of-type(3) {
+        opacity: 0.4;
+      }
+      .content {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1rem;
+        h2 {
+          font-size: 1.4rem;
+        }
+        a {
+          display: block;
+          border: 1px solid #fff;
+          width: 70%;
+          margin: auto;
+          height: 45px;
+          line-height: 45px;
+          border-radius: 50% 60% 70% 40% / 60% 70% 90% 80%;
+          &:hover {
+            border: none;
+            color: coral;
+            background: #fafafa;
+            font-weight: 700;
+            transition: 0.4s ease;
+          }
+        }
+      }
+      @keyframes rotate {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes reverse_rotate {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+      @media screen and (min-width: 680px) {
+        .box {
+          width: 500px;
+          height: 500px;
+        }
+        .content {
+          font-size: 1.4rem;
+          h2 {
+            font-size: 2.6rem;
+          }
+          a {
+            width: 60%;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <span></span><span></span><span></span>
+      <div class="content">
+        <h2>TITLLE</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni sit
+          suscipit impedit quis corporis tenetur in minima ea et facere nam
+          laboriosam illo, ullam omnis quidem modi. Quisquam, nostrum rem!
+        </p>
+        <a href="#">More View</a>
+      </div>
+    </div>
+  </body>
+</html>

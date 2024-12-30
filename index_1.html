@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0
+      minimum-scale=1
+      maximum-scale=1"
+    />
+    <title>GNB 호버 이펙트</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    body {
+      min-width: 380px;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #010a09;
+    }
+    ul {
+      list-style: none;
+    }
+    nav {
+      max-width: 600px;
+      padding: 25px;
+    }
+    nav ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      gap: 50px;
+    }
+    .gnb_list {
+      width: 100%;
+      font-size: 18px;
+      color: #fafafa;
+      padding: 10px 15px;
+      position: relative;
+    }
+    .gnb_list:nth-of-type(1) {
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: #fafafa;
+        z-index: -1;
+        border-radius: 5px;
+      }
+      &:hover::before {
+        animation: fill 0.7s forwards;
+      }
+    }
+    .gnb_list:nth-of-type(2) {
+      &::after {
+        content: "";
+        position: absolute;
+        background: #61dafb;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        scale: 1 0;
+        z-index: -1;
+        transition: 0.5s ease-out;
+        border-radius: 5px;
+      }
+      &:hover::after {
+        scale: 1 1;
+      }
+    }
+    .gnb_list:nth-of-type(3) {
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: #61dafb;
+        transform: scaleX(0);
+        transition: 0.5s ease;
+      }
+      &:before {
+        bottom: 0;
+        left: 0;
+      }
+      &:hover::before {
+        transform: scaleX(1);
+      }
+    }
+    .gnb_list:nth-of-type(4) {
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: #61dafb;
+        transform: scaleX(0);
+        transition: 0.7s ease;
+      }
+      &::before {
+        top: 0;
+        left: 0;
+        transform-origin: left;
+      }
+      &::after {
+        bottom: 0;
+        left: 0;
+        transform-origin: right;
+      }
+      &:hover::before,
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
+    .gnb_list:nth-of-type(5) {
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        background: transparent;
+        transition: 0.5s ease;
+        border-radius: 50%;
+      }
+      &:hover::before {
+        left: 100%;
+        background: #61dafb;
+      }
+    }
+
+    @keyframes fill {
+      0% {
+        width: 0;
+      }
+      50% {
+        width: 100%;
+        height: 2px;
+      }
+      100% {
+        width: 100%;
+        height: 100%;
+        background: #61dafb;
+      }
+    }
+    @media screen and (min-width: 680px) {
+      nav ul {
+        flex-direction: row;
+        gap: 30px;
+      }
+    }
+  </style>
+  <body>
+    <nav>
+      <ul>
+        <li class="gnb_list"><a href="#">GNB.01</a></li>
+        <li class="gnb_list"><a href="#">GNB.02</a></li>
+        <li class="gnb_list"><a href="#">GNB.03</a></li>
+        <li class="gnb_list"><a href="#">GNB.04</a></li>
+        <li class="gnb_list"><a href="#">GNB.05</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/21993961f9.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+      body {
+        background: rgb(151, 181, 193);
+      }
+      .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .sns_wrapper {
+        position: relative;
+      }
+      .btn_sns {
+        position: relative;
+        z-index: 10;
+        background: #f1f1f1;
+        color: #5d5d5d;
+        width: 55px;
+        height: 55px;
+        text-align: center;
+        font-size: 30px;
+        line-height: 55px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .sns_list {
+        z-index: 5;
+        position: absolute;
+        width: 55px;
+        top: 65px;
+        left: 0;
+        background: rgb(74, 131, 216);
+        border-radius: 10px;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-20px);
+        transition: all 0.3s linear;
+      }
+      .sns_list a {
+        display: block;
+        text-align: center;
+        color: #fafafa;
+        height: 55px;
+        line-height: 55px;
+        font-size: 25px;
+        position: relative;
+      }
+      .sns_list .tooltip {
+        position: absolute;
+        top: 0;
+        left: 75px;
+        font-size: 16px;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 10px;
+        background: rgb(111, 164, 243);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease-in;
+      }
+      .sns_list .tooltip::before {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        left: 0;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background: inherit;
+      }
+      .sns_list a:hover .tooltip {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .sns_list.on {
+        transform: translateY(0);
+        pointer-events: auto;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sns_wrapper">
+        <i class="btn_sns fa-regular fa-user"></i>
+        <ul class="sns_list">
+          <li>
+            <a href="#">
+              <span class="tooltip">인스타그램</span>
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="tooltip">유튜브</span>
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="tooltip">X</span>
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="tooltip">깃허브</span>
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      let btnClick = document.querySelector(".btn_sns");
+      let showList = document.querySelector(".sns_list");
+      btnClick.addEventListener("click", () => {
+        showList.classList.toggle("on");
+      });
+    </script>
+  </body>
+</html>
