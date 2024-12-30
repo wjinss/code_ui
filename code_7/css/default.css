@@ -319,8 +319,8 @@ section {
       }
     }
     .big_img {
-      width: 25%;
-      height: auto;
+      width: 80%;
+      max-width: 500px;
     }
   }
 }
