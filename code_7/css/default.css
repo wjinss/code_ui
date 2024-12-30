@@ -300,6 +300,7 @@ section {
   .gallery_big {
     width: 90vw;
     padding-top: 10vh;
+    padding-bottom: 10vh;
     display: flex;
     margin: auto;
     .big_tit {
@@ -319,7 +320,7 @@ section {
       }
     }
     .big_img {
-      width: 80%;
+      width: 70%;
       max-width: 500px;
     }
   }
